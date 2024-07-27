@@ -1,0 +1,87 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ article.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ article.title|striptags  }}{% endblock %}
+
+{% block head %}
+  {{ super() }}
+
+  {% import 'translations.html' as translations with context %}
+  {% if translations.entry_hreflang(article) %}
+    {{ translations.entry_hreflang(article) }}
+  {% endif %}
+
+  {% if article.description %}
+    <meta name="description" content="{{article.description}}" />
+  {% endif %}
+
+  {% for tag in article.tags %}
+    <meta name="tags" content="{{tag}}" />
+  {% endfor %}
+
+{% endblock %}
+
+{% block content %}
+  <article>
+    {% if article.cover %}
+    <header class="w-screen aspect-w-16 aspect-h-9">
+      <div class="flex flex-col-reverse bg-center bg-cover bg-no-repeat " style="background-image: url('{{article.cover}}');">
+      <div class=" bg-ctp-sapphire p-2 text-white">
+        <h1 class="font-bold">
+          <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+             title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+        </h1>
+        <hr class="py-2">
+        <p>{{ article.summary }}</p>
+      </div>
+      </div>
+    {% else %}
+    <header class="w-screen aspect-w-16 aspect-h-9">
+      <h2>
+        <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
+           title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
+      </h2>
+    {% endif %}
+      {% import 'translations.html' as translations with context %}
+      {{ translations.translations_for(article) }}
+    </header>
+    <div class=" flex justify-center">
+      <div  class="prose lg:prose-xl max-w-6xl px-20 text-justify">
+        {{ article.content }}
+      </div>
+    </div>
+    <footer class="bg-ctp-overlay1 text-white p-2 ">
+      <span class="mb-1 flex ">
+        <p class="mr-3">Published: <time datetime="{{ article.date.isoformat() }}">
+          {{ article.locale_date }}
+        </time></p>
+        {% if article.modified %}
+          <p>Last updated: <time datetime="{{ article.modified.isoformat() }}">
+            {{ article.locale_modified }}
+          </time></p>
+        {% endif %}
+        {% if article.authors %}
+          <address>
+            By {% for author in article.authors %}
+              <a href="{{ SITEURL }}/{{ author.url }}">{{ author }}</a>
+            {% endfor %}
+          </address>
+        {% endif %}
+      </span>
+      {% if article.category %}
+        <p class="mb-2">
+          Category: <a class="bg-ctp-peach text-white p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+        </p>
+      {% endif %}
+      {% if article.tags %}
+        <p class="mb-2">
+          Tags:
+          {% for tag in article.tags %}
+            <a class="bg-ctp-peach text-white p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+          {% endfor %}
+        </p>
+      {% endif %}
+      <hr>
+    </footer>
+  </article>
+{% endblock %}

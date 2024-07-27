@@ -1,0 +1,24 @@
+{% extends "base.html" %}
+{% block content %}
+    <div class="flex justify-content-between flex-row" >
+      <div class="flex justify-content-between flex-col content-center w-1/2">
+      {% for article in articles_page.object_list %}
+        {% if not loop.index is divisibleby(2) %}
+          {% include 'post-preview.html' %}
+        {% endif %}
+      {% endfor %}
+      </div>
+      <div class="flex justify-content-between flex-col content-center w-1/2">
+      {% for article in articles_page.object_list %}
+        {% if loop.index is divisibleby(2) %}
+          {% include 'post-preview.html' %}
+        {% endif %}
+      {% endfor %}
+      </div>
+    </div>
+
+    {% if articles_page.has_other_pages() %}
+        {% include 'pagination.html' %}
+    {% endif %}
+
+{% endblock content %}

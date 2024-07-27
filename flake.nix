@@ -20,7 +20,8 @@
             pkgs.python311Packages.venvShellHook
             pkgs.python311Packages.markdown
             pkgs.python311Packages.pelican
-            pkgs.tailwindcss
+            pkgs.nodePackages_latest.tailwindcss
+
             pkgs.pyright
           ];
           postVenvCreation = ''

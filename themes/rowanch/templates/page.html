@@ -1,0 +1,32 @@
+{% extends "base.html" %}
+{% block html_lang %}{{ page.lang }}{% endblock %}
+
+{% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{%endblock%}
+
+{% block head %}
+  {{ super() }}
+
+  {% import 'translations.html' as translations with context %}
+  {% if translations.entry_hreflang(page) %}
+    {{ translations.entry_hreflang(page) }}
+  {% endif %}
+{% endblock %}
+
+{% block content %}
+  <div class=" flex justify-center">
+    <article class="prose lg:prose-xl max-w-6xl px-20 text-justify">
+      {% import 'translations.html' as translations with context %}
+      {{ translations.translations_for(page) }}
+
+      {{ page.content }}
+
+      {% if page.modified %}
+        <footer>
+          <p>
+            Last updated: {{ page.locale_modified }}
+          </p>
+        </footer>
+      {% endif %}
+    </article>
+  </div>
+{% endblock %}

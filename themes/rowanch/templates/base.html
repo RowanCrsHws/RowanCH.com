@@ -6,7 +6,7 @@
       <meta charset="utf-8" />
       <meta name="generator" content="Pelican" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="./output.css" />
+      <link rel="stylesheet" type="text/css" href="/output.css" />
       {% if SITESUBTITLE %}
         <meta name="description" content="{{ SITESUBTITLE }}" />
       {% endif %}
@@ -40,12 +40,13 @@
     {% endblock head %}
   </head>
 
-  <body>
-    <header>
-      <hgroup><h1><a href="{{ SITEURL }}/">{{ SITENAME }}</a></h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
-      <nav><ul>
+  <body  class="bg-ctp-base text-ctp-text">
+    <header class="flex flex-wrap items-left justify-left bg-ctp-sapphire p-5 text-white">
+      <hgroup class="pr-2 font-bold"<h1><a class="transition-colors hover:text-ctp-peach"  href="{{ SITEURL }}/">Rowan Cruse Howse</a></h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
+      <nav><ul class="flex flex-wrap items-left justify-left">
+          <li class="pr-2">•</li>
         {% for title, link in MENUITEMS %}
-          <li><a href="{{ link }}">{{ title }}</a></li>
+          <li class="pr-2 transition-colors hover:text-ctp-peach"><a href="{{ link }}">{{ title }}</a></li>
         {% endfor %}
         {% if DISPLAY_PAGES_ON_MENU %}
           {% for p in pages %}
@@ -63,5 +64,12 @@
       {% block content %}
       {% endblock %}
     </main>
+    <footer class="p-2 bg-ctp-overlay1 text-white prose lg:prose-s max-w-none">
+      Copyright © {{ NOW | strftime('%Y') }} Rowan Cruse Howse. 
+      <ul class="list-disc ">
+        <li>RowanCH.com site source code is licensed under <a href="https://www.gnu.org/licenses/agpl-3.0.txt">AGPL-3.0-or-later</a> and is available at: TODO.</li>
+        <li>Pages contents, excluding externally embedded or linked content is licensed under <a class="inline-flex " href="https://creativecommons.org/licenses/by-sa/4.0/?ref=chooser-v1" target="_blank" rel="license noopener noreferrer">CC BY-SA 4.0<img class="h-6 m-0" src="https://mirrors.creativecommons.org/presskit/icons/cc.svg?ref=chooser-v1" alt=""><img class="h-6 m-0" src="https://mirrors.creativecommons.org/presskit/icons/by.svg?ref=chooser-v1" alt=""><img class="h-6 m-0" src="https://mirrors.creativecommons.org/presskit/icons/sa.svg?ref=chooser-v1" alt=""></a> Unless Otherwise Specified. </li>
+      </ul>
+    </footer>
   </body>
 </html>

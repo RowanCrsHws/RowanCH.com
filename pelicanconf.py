@@ -1,4 +1,6 @@
 
+from datetime import datetime
+NOW = datetime.now()
 AUTHOR = 'Rowan Cruse Howse'
 SITENAME = 'RowanCH'
 SITEURL = ""
@@ -15,7 +17,7 @@ CATEGORY_FEED_ATOM = None
 TRANSLATION_FEED_ATOM = None
 AUTHOR_FEED_ATOM = None
 AUTHOR_FEED_RSS = None
-
+DEFAULT_PAGINATION = 10
 # Blogroll
 LINKS = (
     ("Pelican", "https://getpelican.com/"),
@@ -31,7 +33,14 @@ SOCIAL = (
 )
 
 THEME = "themes/rowanch"
-DEFAULT_PAGINATION = 10
-
+ARTICLE_URL = "blog/{date:%Y}-{date:%m}-{date:%d}-{slug}.html"
+ARTICLE_SAVE_AS = "blog/{date:%Y}-{date:%m}-{date:%d}-{slug}.html"
+INDEX_SAVE_AS = "blog/index.html"
+MENUITEMS = [
+ ('blog', '/blog'),
+ ('contact', '/contact'),
+]
+DISPLAY_PAGES_ON_MENU = False
+DISPLAY_CATEGORIES_ON_MENU = False
 # Uncomment following line if you want document-relative URLs when developing
 # RELATIVE_URLS = True
