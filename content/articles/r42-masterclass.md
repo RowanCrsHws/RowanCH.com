@@ -1,8 +1,8 @@
-title: 
-date: 2000-12-31 12:00
-tags: TODO
-summary: TODO
-cover: TODO_OR_DELETE
+title: Random 42 Masterclass
+date: 2024-02-05 15:00
+tags: university, simulation, nuke, houdini
+summary: Simulating and Rendering microscopic enviroments
+cover: /images/covers/r42-cover-1920.png
 
 <div class="w-full aspect-w-16 aspect-h-9">
 <iframe title="vimeo-player" src="https://player.vimeo.com/video/910765912?h=7d5e017dc8" frameborder="0"    allowfullscreen></iframe>
@@ -27,7 +27,7 @@ The procedural modelling of the liver cells is first, a hexagonal grid, with the
 ![A series of images showing the process of creating the close up cell details](/images/misc/r42-cell-generation-2.png)
 The virus starts with a sphere distorted by a set of points to generate the spikes. A series of noise layers are then added bit by bit, before the extended strands and hair is scattered on.
 
-![A series of images showing the process of generating the virus](/images/misc/r42-boids.png)
+![A series of images showing the process of generating the virus](/images/misc/r42-virus-generation.png)
 The virus is shaded based on curvature attributes and normal data. It makes heavy use of sub surface scattering to give it a sense of microscopic shading.
 Simulation
 

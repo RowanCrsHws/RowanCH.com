@@ -5,9 +5,8 @@ summary: Grain and Pyro simulation.
 cover: /images/covers/sand-explosion-1920.png
 
 <div class="w-full aspect-w-16 aspect-h-9">
-    <iframe src="https://www.youtube.com/embed/3stjzkwr2jm?si=skgkrlu5z8adodd4" title="youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+    <iframe src="https://www.youtube.com/embed/3StjzKWR2jM?si=K_QD3yXSgqBhKqvP" title="youtube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 </div>
-
 ## Introduction
 A shot I created for the Technical Effects unit of my university course. The intention was to replicate an explosion detonating under a layer of sand. I chose this effect as I felt it offered a number of opportunities for interesting problems to solve while still being achievable within the time available for the assignment.
 

@@ -1,0 +1,18 @@
+
+{% extends "base.html" %}
+
+{% block title %}{{ SITENAME|striptags }} - Contact{%endblock%}
+
+{% block head %}
+  {{ super() }}
+
+{% endblock %}
+
+{% block content %}
+  <div class="my-3 flex justify-center">
+    <article class="prose lg:prose-xl max-w-6xl px-20 text-justify">
+      <h1 class="text-ctp-green">Message Sent Successfully</h1>
+      <p>Thanks for your message, I will try to get back to you as soon as I can.</p>
+    </article>
+  </div>
+{% endblock %}

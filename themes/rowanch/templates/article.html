@@ -26,7 +26,7 @@
     {% if article.cover %}
     <header class="w-screen aspect-w-16 aspect-h-9">
       <div class="flex flex-col-reverse bg-center bg-cover bg-no-repeat " style="background-image: url('{{article.cover}}');">
-      <div class=" bg-ctp-sapphire p-2 text-white">
+      <div class=" bg-ctp-teal p-2 text-white">
         <h1 class="font-bold">
           <a href="{{ SITEURL }}/{{ article.url }}" rel="bookmark"
              title="Permalink to {{ article.title|striptags }}">{{ article.title }}</a>
@@ -45,7 +45,7 @@
       {% import 'translations.html' as translations with context %}
       {{ translations.translations_for(article) }}
     </header>
-    <div class=" flex justify-center">
+    <div class="mt-3 flex justify-center">
       <div  class="prose lg:prose-xl max-w-6xl px-20 text-justify">
         {{ article.content }}
       </div>

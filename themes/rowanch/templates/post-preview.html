@@ -1,8 +1,8 @@
 
-<article class="m-4 w-fill relative">
+<article class="m-4 w-fill relative overflow-hidden">
   <a class="h-fit w-fit" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
     {% if article.cover %}
-    <img src="{{article.cover}}">
+    <img class="w-full" src="{{article.cover}}">
     <div class="absolute bottom-0 p-2 w-full h-full transition-colors transition-opacity bg-ctp-overlay2/70 text-white hover:opacity-0 ">
     {% else %}
     <div class="transition-colors hover:text-ctp-peach bg-ctp-surface0 p-2">

@@ -17,5 +17,6 @@ plugins: [
         defaultFlavour: "latte",
     }),
     require('@tailwindcss/typography'),
+    require('@tailwindcss/forms'),
 ],
 };

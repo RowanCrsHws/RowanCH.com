@@ -40,6 +40,7 @@ MENUITEMS = [
  ('blog', '/blog'),
  ('contact', '/contact'),
 ]
+DIRECT_TEMPLATES = ["formSuccess", "formError", "contact", 'index', 'categories', 'authors', 'archives']
 DISPLAY_PAGES_ON_MENU = False
 DISPLAY_CATEGORIES_ON_MENU = False
 # Uncomment following line if you want document-relative URLs when developing
