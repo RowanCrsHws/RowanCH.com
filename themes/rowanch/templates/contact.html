@@ -1,31 +1,23 @@
 
-{% extends "base.html" %}
+{% extends "super_page.html" %}
 
 {% block title %}{{ SITENAME|striptags }} - Contact{%endblock%}
 
-{% block head %}
-  {{ super() }}
 
-{% endblock %}
+{% block page_content %}
+  <form action="http://localhost:5000" method="post">
+    <label for="name">Name:<span class="text-ctp-red">*</span></label><br>
+    <input class="w-full border-none rounded-xl drop-shadow" type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
 
-{% block content %}
-  <div class="my-3 flex justify-center">
-    <article class="prose lg:prose-xl max-w-6xl px-20 text-justify">
-      <form action="http://localhost:5000" method="post">
-        <label for="name">Name:<span class="text-ctp-red">*</span></label><br>
-        <input class="w-full border-none rounded-xl drop-shadow" type="text" id="name" name="name" placeholder="Enter your name" required><br><br>
+    <label for="email">Email:<span class="text-ctp-red">*</span></label><br>
+    <input class="w-full border-none rounded-xl drop-shadow" type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
 
-        <label for="email">Email:<span class="text-ctp-red">*</span></label><br>
-        <input class="w-full border-none rounded-xl drop-shadow" type="email" id="email" name="email" placeholder="Enter your email" required><br><br>
+    <label for="subject">Subject:<span class="text-ctp-red">*</span></label><br>
+    <input class="w-full border-none rounded-xl drop-shadow" type="text" id="subject" name="subject" placeholder="Enter the subject" required><br><br>
 
-        <label for="subject">Subject:<span class="text-ctp-red">*</span></label><br>
-        <input class="w-full border-none rounded-xl drop-shadow" type="text" id="subject" name="subject" placeholder="Enter the subject" required><br><br>
+    <label for="message">Message:<span class="text-ctp-red">*</span></label><br>
+    <textarea class="w-full border-none rounded-xl drop-shadow" id="message" name="message" rows="5" cols="40" placeholder="Enter your message" required></textarea><br><br>
 
-        <label for="message">Message:<span class="text-ctp-red">*</span></label><br>
-        <textarea class="w-full border-none rounded-xl drop-shadow" id="message" name="message" rows="5" cols="40" placeholder="Enter your message" required></textarea><br><br>
-
-        <input class="w-full border-none rounded-xl drop-shadow bg-ctp-surface1 hover:bg-ctp-peach transition-colors" type="submit" value="Send">
-      </form>
-    </article>
-  </div>
+    <input class="w-full border-none rounded-xl drop-shadow bg-ctp-surface1 hover:bg-ctp-peach transition-colors" type="submit" value="Send">
+  </form>
 {% endblock %}

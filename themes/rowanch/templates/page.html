@@ -1,4 +1,4 @@
-{% extends "base.html" %}
+{% extends "super_page.html" %}
 {% block html_lang %}{{ page.lang }}{% endblock %}
 
 {% block title %}{{ SITENAME|striptags }} - {{ page.title|striptags }}{%endblock%}
@@ -12,21 +12,16 @@
   {% endif %}
 {% endblock %}
 
-{% block content %}
-  <div class="mt-3 flex justify-center">
-    <article class="prose lg:prose-xl max-w-6xl px-20 text-justify">
-      {% import 'translations.html' as translations with context %}
-      {{ translations.translations_for(page) }}
+{% block page_content %}
+  {% import 'translations.html' as translations with context %}
+  {{ translations.translations_for(page) }}
+  {{ page.content }}
+  {% if page.modified %}
+    <footer>
+      <p>
+        Last updated: {{ page.locale_modified }}
+      </p>
+    </footer>
+  {% endif %}
 
-      {{ page.content }}
-
-      {% if page.modified %}
-        <footer>
-          <p>
-            Last updated: {{ page.locale_modified }}
-          </p>
-        </footer>
-      {% endif %}
-    </article>
-  </div>
 {% endblock %}

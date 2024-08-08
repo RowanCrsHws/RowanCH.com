@@ -6,7 +6,7 @@
       <meta charset="utf-8" />
       <meta name="generator" content="Pelican" />
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
-      <link rel="stylesheet" type="text/css" href="/output.css" />
+      <link rel="stylesheet" type="text/css" href="/static/output.css" />
       {% if SITESUBTITLE %}
         <meta name="description" content="{{ SITESUBTITLE }}" />
       {% endif %}
@@ -40,10 +40,18 @@
     {% endblock head %}
   </head>
 
+  <style>
+    .articleContent img,
+    .articleContent iframe
+    {
+      margin:auto;
+      border-radius: 0.75rem;
+    }
+  </style>
   <body  class="min-h-screen bg-ctp-base text-ctp-text">
-    <header class="flex flex-wrap items-left justify-left bg-ctp-teal p-5 text-white">
+    <header class="text-xl flex flex-wrap items-left justify-left bg-ctp-teal p-5 text-white">
       <hgroup class="pr-2 font-bold"<h1><a class="transition-colors hover:text-ctp-peach"  href="{{ SITEURL }}/">Rowan Cruse Howse</a></h1>{% if SITESUBTITLE %}<p>{{ SITESUBTITLE }}</p>{% endif %}</hgroup>
-      <nav><ul class="flex flex-wrap items-left justify-left">
+      <nav class="pr-8"><ul class="flex flex-wrap items-left justify-left">
           <li class="pr-2">•</li>
         {% for title, link in MENUITEMS %}
           <li class="pr-2 transition-colors hover:text-ctp-peach"><a href="{{ link }}">{{ title }}</a></li>
@@ -59,6 +67,15 @@
           {% endfor %}
         {% endif %}
       </ul></nav>
+      <nav>
+        <ul class="flex flex-wrap items-left justify-left">
+          {% for link in SOCIAL %}
+          <li>
+            <a class="block p-2" href="{{link[1]}}"><!-- The following svg is copyright The Bootstrap Authors and used under the MIT Licence -->{{link[0]}}</a>
+          </li>
+          {% endfor %}
+        </ul>
+      </nav>
     </header>
     <main style="min-height:90vh;">
       {% block content %}

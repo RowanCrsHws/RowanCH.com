@@ -1,0 +1,27 @@
+{% extends "super_page.html" %}
+
+{% block title %}{{ SITENAME|striptags }}{%endblock%}
+
+{% block page_content %}
+  <div class="w-full aspect-w-16 aspect-h-9">
+      <iframe src="https://player.vimeo.com/video/951690940?h=d0b42e3d24" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" allowfullscreen></iframe>
+  </div>
+  <div class="md:flex  pt-6 pb-6">
+    <div class="md:w-1/2 md:m-4">
+      <div class=" prose lg:prose-xl w-full max-w-7xl">
+        <h2>About Me</h2>
+        <p>I have recently graduated from Bournemouth University with a first in BA (Hons) Computer Animation Technical Arts.
+        In my studies I have primarily focused on procedural systems and physics simulations, both through the use of existing tools and also directly through code.</p>
+
+        <p>Throughout my studies I have had the opportunity to explore a wide range of skills and tools, while also being able to focus on the areas that interest me. In addition to the various software packages and programming languages I have learned, I have also been able to develop my artistic capabilities and problem solving skills.</p>
+      </div>
+    </div>
+    <div class="md:w-1/2 md:m-4">
+      <div class="prose lg:prose-xl w-full max-w-7xl">
+        <h2> Latest Blog Post</h2>
+      </div>
+      {% set article = articles[0] %}
+      {% include "post-preview.html" %}
+    </div>
+  <div>
+{% endblock %}
