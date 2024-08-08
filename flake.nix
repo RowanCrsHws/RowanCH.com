@@ -14,7 +14,7 @@
         devShells.${system}.default =  pkgs.mkShell 
         {
           venvDir = "./.venv";
-          packages = [
+          packages = [#TODO integrate tailwind plugins into nix
             pkgs.python311
             pkgs.python311Packages.pip
             pkgs.python311Packages.venvShellHook
