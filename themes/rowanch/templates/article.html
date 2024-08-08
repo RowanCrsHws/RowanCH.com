@@ -70,14 +70,14 @@
       </span>
       {% if article.category %}
         <p class="mb-2">
-          Category: <a class="bg-ctp-peach text-white p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
+          Category: <a class="bg-ctp-peach text-white px-3 p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ article.category.url }}">{{ article.category }}</a>
         </p>
       {% endif %}
       {% if article.tags %}
         <p class="mb-2">
           Tags:
           {% for tag in article.tags %}
-            <a class="bg-ctp-peach text-white p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
+            <a class="bg-ctp-peach text-white px-3 p-1 hover:bg-ctp-yellow transition-colors rounded-full" href="{{ SITEURL }}/{{ tag.url }}">{{ tag }}</a>
           {% endfor %}
         </p>
       {% endif %}
