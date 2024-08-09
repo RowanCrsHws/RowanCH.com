@@ -1,4 +1,7 @@
-[RowanCH.com](https://www.rowanch.com) - (Note, the old site is currently still live, this one will replace it in the coming days as I configure the server and the dns updates) site source code is licensed under AGPL-3.0-or-later
+# [RowanCH.com](https://www.rowanch.com)
+(Note, the old site is currently still live, this one will replace it in the coming days as I configure the server and the dns updates ) 
+
+RowanCH.com site source code is licensed under AGPL-3.0-or-later
 
 Pages contents, excluding externally embedded or linked content is licensed under CC BY-SA 4.0 Unless Otherwise Specified.
 
