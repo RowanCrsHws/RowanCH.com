@@ -1,25 +1,38 @@
 {% extends "base.html" %}
 {% block content %}
-    {% set sns = namespace(aSize = 0) %}
-    {% for article in articles_page.object_list %}
-      {% set sns.aSize = max(sns.aSize, 50*get_aspect_ratio("./content/"+article.cover)) %}
-    {% endfor %}
-    <div class="grid md:grid-cols-2 md:h-[{{sns.aSize*(articles_page.object_list|length+1)/2}}vw]">
-    {% set cns = namespace(c1Offset = 0, c2Offset = 0, count = 0) %}
+    <div class="grid md:grid-cols-2">
+    {% set cns = namespace(c1Offset = 0, c2Offset = 0, aSize=0, lastS=0) %}
     {% for article in articles_page.object_list %}
       {% if not loop.index is divisibleby(2) %}
         {% set offset = cns.c1Offset %}
       {% else %}
         {% set offset = cns.c2Offset %}
       {% endif %}
-      <div class="md:translate-y-[-{{sns.aSize*cns.count - offset}}vw]">
-        {% include 'post-preview.html' %}
-      </div>
-      {% if not loop.index is divisibleby(2) %}
-        {% set cns.c1Offset = cns.c1Offset + 50*get_aspect_ratio("./content/"+article.cover) %}
+      {% if article.cover %}
+        <div class="md:translate-y-[-{{cns.aSize - offset}}vw]">
+          {% include 'post-preview.html' %}
+        </div>
       {% else %}
-        {% set cns.count = cns.count + 1 %}
-        {% set cns.c2Offset = cns.c2Offset + 50*get_aspect_ratio("./content/"+article.cover) %}
+        <div class="h-fit md:translate-y-[-{{cns.aSize - offset}}vw]">
+          {% include 'post-preview.html' %}
+        </div>
+      {% endif %}
+      {% if not loop.index is divisibleby(2) %}
+        {% if article.cover %}
+          {% set cns.lastS = 50*get_aspect_ratio("./content/"+article.cover) %}
+          {% set cns.c1Offset = cns.c1Offset + 50*get_aspect_ratio("./content/"+article.cover) %}
+        {% else %}
+          {% set cns.lastS = 20 %}
+          {% set cns.c1Offset = cns.c1Offset + 20 %}
+        {% endif %}
+      {% else %}
+        {% if article.cover %}
+          {% set cns.aSize = cns.aSize + max(cns.lastS, 50*get_aspect_ratio("./content/"+article.cover)) %}
+          {% set cns.c2Offset = cns.c2Offset + 50*get_aspect_ratio("./content/"+article.cover) %}
+        {% else %}
+          {% set cns.aSize = cns.aSize + max(cns.lastS, 20) %}
+          {% set cns.c2Offset = cns.c2Offset + 20 %}
+        {% endif %}
       {% endif %}
     {% endfor %}
     </div>

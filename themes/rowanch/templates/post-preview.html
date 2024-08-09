@@ -1,11 +1,16 @@
 
-<article class="md:text-xl m-4 w-fill relative overflow-hidden">
+{% if article.cover %}
+<article class="md:text-xl m-4  relative overflow-hidden">
   <a class="h-fit w-fit" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+{% else %}
+<article class="h-full md:text-xl m-4 relative overflow-hidden">
+  <a class="inline-block h-full w-full" href="{{ SITEURL }}/{{ article.url }}" rel="bookmark" title="Permalink to {{ article.title|striptags }}">
+{% endif%}
     {% if article.cover %}
     <img class="w-full rounded-xl drop-shadow" src="{{article.cover}}">
     <div class="absolute rounded-xl bottom-0 p-2 w-full h-full transition-colors transition-opacity bg-ctp-overlay2/70 text-white hover:opacity-0 ">
     {% else %}
-    <div class="transition-colors hover:text-ctp-peach bg-ctp-surface0 p-2">
+    <div class="h-[19vw] transition-colors hover:text-ctp-peach bg-ctp-surface0 p-2 rounded-xl drop-shadow">
     {% endif%}
       <header> <h2 class="py-2 font-bold">{{ article.title }}</h2> </header>
       <hr class="py-2">
